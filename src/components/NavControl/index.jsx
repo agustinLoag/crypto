@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavControlContainer } from "./styles";
+import { TodoContext } from "../../context";
 
-const NavControl = () => {
-  return <NavControlContainer>NavControl</NavControlContainer>;
+const NavControl = ({ namePage }) => {
+  const { currentPage, handlePage } = useContext(TodoContext);
+  return (
+    <NavControlContainer
+      onClick={() => handlePage(namePage)}
+      active={currentPage === namePage}
+    >
+      {namePage}
+    </NavControlContainer>
+  );
 };
 
 export default NavControl;

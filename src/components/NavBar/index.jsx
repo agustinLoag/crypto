@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavBarStyle } from "./styles";
 import NavControl from "../NavControl";
+import { TodoContext } from "../../context";
 
 const NavBar = () => {
+  const { getTodoValues } = useContext(TodoContext);
   return (
     <NavBarStyle>
-      <NavControl>Hola 1</NavControl>
-      <NavControl>Hola 2</NavControl>
-      <NavControl>Hola 3</NavControl>
+      <NavControl namePage={"Index"} />
+      <NavControl namePage={"Dash"} />
+      <NavControl namePage={"Home"} />
     </NavBarStyle>
   );
 };
